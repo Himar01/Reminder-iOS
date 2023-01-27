@@ -12,41 +12,66 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        entity: TaskReminder.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \TaskReminder.date, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var tasks: FetchedResults<TaskReminder>
+    
+    @State var isMind : Bool = false
 
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
+            ZStack {
+                     Color.white
+                         .ignoresSafeArea()
+                VStack{
+                    HStack{
+                        Button {
+                            isMind = true
+                        } label: {
+                            Text("Mente").tint(isMind ? .black : .gray).font(isMind ? .title : .system(size: 17))
+                        }
+                        Spacer()
+                        Button("Tareas"){
+                            isMind = false
+                        }.tint(isMind ? .gray : .black).font(isMind ? .system(size: 17) : .title)
+                        
+                    }.padding(.init(top: 20, leading: 75, bottom: 0, trailing: 75))
+                    List {
+                        ForEach(tasks) { task in
+                            TaskView(task:task)
+                                .buttonStyle(PlainButtonStyle())
+                                .listRowBackground(Color(red: 234/255, green: 250/255, blue: 254/255))
+                        }
+                        .onDelete(perform: deleteItems)
+                    }.scrollContentBackground(.hidden)
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
+             }
+
+//            .toolbar {
+//               ToolbarItem(placement: .navigationBarTrailing) {
+//                    EditButton(x)
+//                }
+//                ToolbarItem {
+//                    Button(action: addItem) {
+//                        Label("Add Item", systemImage: "plus")
+//                    }
+//                }
+//            }
+//            Text("Select an item")}
         }
     }
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
+            let newTask = TaskReminder(context: viewContext)
+            newTask.date = Date()
+            newTask.completed = false
+            newTask.name = "Tarea básica"
+            newTask.notes = "Tarea sobre el destino del sabio"
+            newTask.isMind = false
+            newTask.id = 0
             do {
                 try viewContext.save()
             } catch {
@@ -60,7 +85,7 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { tasks[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
@@ -74,7 +99,7 @@ struct ContentView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
+let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
     formatter.timeStyle = .medium
@@ -84,5 +109,11 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
+
+extension Button {
+    func big( ) -> Button {
+        return self.tint(.black) as! Button
     }
 }

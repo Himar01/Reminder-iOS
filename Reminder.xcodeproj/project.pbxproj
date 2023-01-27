@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C013DEE29846CF4008E6631 /* ConfigTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C013DED29846CF4008E6631 /* ConfigTaskView.swift */; };
 		5CAB69A92984116900EA7FED /* ReminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB69A82984116900EA7FED /* ReminderApp.swift */; };
 		5CAB69AB2984116900EA7FED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB69AA2984116900EA7FED /* ContentView.swift */; };
 		5CAB69AD2984117300EA7FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAB69AC2984117300EA7FED /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 		5CAB69BF2984117400EA7FED /* ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB69BE2984117400EA7FED /* ReminderTests.swift */; };
 		5CAB69C92984117500EA7FED /* ReminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB69C82984117500EA7FED /* ReminderUITests.swift */; };
 		5CAB69CB2984117500EA7FED /* ReminderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB69CA2984117500EA7FED /* ReminderUITestsLaunchTests.swift */; };
+		5CE9EBCA2984268F00252D23 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9EBC92984268F00252D23 /* TaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C013DED29846CF4008E6631 /* ConfigTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTaskView.swift; sourceTree = "<group>"; };
 		5CAB69A52984116900EA7FED /* Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAB69A82984116900EA7FED /* ReminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderApp.swift; sourceTree = "<group>"; };
 		5CAB69AA2984116900EA7FED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 		5CAB69C42984117500EA7FED /* ReminderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReminderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAB69C82984117500EA7FED /* ReminderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderUITests.swift; sourceTree = "<group>"; };
 		5CAB69CA2984117500EA7FED /* ReminderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5CE9EBC92984268F00252D23 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				5CAB69B12984117300EA7FED /* Persistence.swift */,
 				5CAB69B32984117300EA7FED /* Reminder.xcdatamodeld */,
 				5CAB69AE2984117300EA7FED /* Preview Content */,
+				5CE9EBC92984268F00252D23 /* TaskView.swift */,
+				5C013DED29846CF4008E6631 /* ConfigTaskView.swift */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -266,7 +272,9 @@
 				5CAB69B22984117300EA7FED /* Persistence.swift in Sources */,
 				5CAB69AB2984116900EA7FED /* ContentView.swift in Sources */,
 				5CAB69A92984116900EA7FED /* ReminderApp.swift in Sources */,
+				5CE9EBCA2984268F00252D23 /* TaskView.swift in Sources */,
 				5CAB69B52984117300EA7FED /* Reminder.xcdatamodeld in Sources */,
+				5C013DEE29846CF4008E6631 /* ConfigTaskView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

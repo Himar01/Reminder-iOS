@@ -13,9 +13,14 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+        for _ in 0..<2 {
+            let newItem = TaskReminder(context: viewContext)
+            newItem.date = Date()
+            newItem.completed = false
+            newItem.name = "Tarea básica"
+            newItem.notes = "Tarea sobre el destino del sabio"
+            newItem.isMind = false
+            newItem.id = 0
         }
         do {
             try viewContext.save()
@@ -28,6 +33,7 @@ struct PersistenceController {
         return result
     }()
 
+    
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
