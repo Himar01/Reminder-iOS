@@ -17,27 +17,26 @@ struct ContentView: View {
         animation: .default)
     private var tasks: FetchedResults<TaskReminder>
     
+    
     @State var isMind : Bool = false
-
+    @State var isCompleted : Bool = false
     
     var body: some View {
         NavigationView {
-            ZStack {
-                     Color.white
-                         .ignoresSafeArea()
+            GeometryReader{ geo in
                 VStack{
                     HStack{
                         Button {
                             isMind = true
                         } label: {
-                            Text("Mente").tint(isMind ? .black : .gray).font(isMind ? .title : .system(size: 17))
+                            Text("Mente").tint(isMind ? .black : .lightGray).font(isMind ? .title : .system(size: 17))
                         }
                         Spacer()
                         Button("Tareas"){
                             isMind = false
-                        }.tint(isMind ? .gray : .black).font(isMind ? .system(size: 17) : .title)
+                        }.tint(isMind ? .lightGray : .black).font(isMind ? .system(size: 17) : .title)
                         
-                    }.padding(.init(top: 20, leading: 75, bottom: 0, trailing: 75))
+                    }.padding(.init(top: 20, leading: 75, bottom: 0, trailing: 75)).frame(height: geo.size.height * 0.1)
                     List {
                         ForEach(tasks) { task in
                             TaskView(task:task)
@@ -46,20 +45,17 @@ struct ContentView: View {
                         }
                         .onDelete(perform: deleteItems)
                     }.scrollContentBackground(.hidden)
-                }
-             }
-
-//            .toolbar {
-//               ToolbarItem(placement: .navigationBarTrailing) {
-//                    EditButton(x)
-//                }
-//                ToolbarItem {
-//                    Button(action: addItem) {
-//                        Label("Add Item", systemImage: "plus")
-//                    }
-//                }
-//            }
-//            Text("Select an item")}
+                        .frame(height: geo.size.height * 0.6)
+                        
+                    VStack{
+                        Button("Tareas completadas"){
+                            isCompleted = !isCompleted
+                        }.buttonStyle(.borderedProminent)
+                            .tint(isCompleted ? .taskCompletedBackground : .taskNotCompletedBackground)
+                        Spacer()
+                    }.frame(height: geo.size.height * 0.3)
+                }.background{if(isMind) {Image("subway_whiter").scaledToFit()}else {Color.white}}
+            }
         }
     }
 
