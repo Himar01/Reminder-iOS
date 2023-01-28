@@ -13,14 +13,41 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<2 {
+        for i in 0..<2 {
             let newItem = TaskReminder(context: viewContext)
             newItem.date = Date()
-            newItem.completed = false
+            newItem.completed = true
             newItem.name = "Tarea básica"
             newItem.notes = "Tarea sobre el destino del sabio"
             newItem.isMind = false
-            newItem.id = 0
+            newItem.id = Int64(i)
+        }
+        for _ in 0..<1 {
+            let newItem = TaskReminder(context: viewContext)
+            newItem.date = Date()
+            newItem.completed = false
+            newItem.name = "Tarea compleja"
+            newItem.notes = "Tarea sobre el destino del sabio"
+            newItem.isMind = false
+            newItem.id = 2
+        }
+        for i in 0..<4 {
+            let newItem = TaskReminder(context: viewContext)
+            newItem.date = Date()
+            newItem.completed = false
+            newItem.name = "Tarea compleja mente"
+            newItem.notes = "Tarea sobre el destino del sabio"
+            newItem.isMind = true
+            newItem.id = Int64(3+i)
+        }
+        for _ in 0..<1 {
+            let newItem = TaskReminder(context: viewContext)
+            newItem.date = Date()
+            newItem.completed = true
+            newItem.name = "Tarea compleja mente"
+            newItem.notes = "Tarea sobre el destino del sabio"
+            newItem.isMind = true
+            newItem.id = 7
         }
         do {
             try viewContext.save()
