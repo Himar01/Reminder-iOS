@@ -25,6 +25,8 @@ struct ContentView: View {
     @State var isMind : Bool = false
     @State var isCompleted : Bool = false
     
+    
+    
     var body: some View {
         GeometryReader{ geo in
             NavigationView {

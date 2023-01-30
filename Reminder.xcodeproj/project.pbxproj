@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5C013DF529849CF2008E6631 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C013DF429849CF2008E6631 /* Color+Extensions.swift */; };
 		5C68C2A429882D1400E599CA /* ConfigTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C68C2A329882D1400E599CA /* ConfigTaskView.swift */; };
+		5C68C2A62988449E00E599CA /* basicTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C68C2A52988449E00E599CA /* basicTask.swift */; };
+		5C68C2A82988466B00E599CA /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C68C2A72988466B00E599CA /* Api.swift */; };
 		5CAB69A92984116900EA7FED /* ReminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB69A82984116900EA7FED /* ReminderApp.swift */; };
 		5CAB69AB2984116900EA7FED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB69AA2984116900EA7FED /* ContentView.swift */; };
 		5CAB69AD2984117300EA7FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAB69AC2984117300EA7FED /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		5C013DF429849CF2008E6631 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		5C68C2A329882D1400E599CA /* ConfigTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTaskView.swift; sourceTree = "<group>"; };
+		5C68C2A52988449E00E599CA /* basicTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = basicTask.swift; sourceTree = "<group>"; };
+		5C68C2A72988466B00E599CA /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		5CAB69A52984116900EA7FED /* Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAB69A82984116900EA7FED /* ReminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderApp.swift; sourceTree = "<group>"; };
 		5CAB69AA2984116900EA7FED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				5CAB69B32984117300EA7FED /* Reminder.xcdatamodeld */,
 				5CAB69AE2984117300EA7FED /* Preview Content */,
 				5CE9EBC92984268F00252D23 /* TaskView.swift */,
+				5C68C2A52988449E00E599CA /* basicTask.swift */,
+				5C68C2A72988466B00E599CA /* Api.swift */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -280,6 +286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C68C2A82988466B00E599CA /* Api.swift in Sources */,
+				5C68C2A62988449E00E599CA /* basicTask.swift in Sources */,
 				5CAB69B22984117300EA7FED /* Persistence.swift in Sources */,
 				5CAB69AB2984116900EA7FED /* ContentView.swift in Sources */,
 				5CAB69A92984116900EA7FED /* ReminderApp.swift in Sources */,
