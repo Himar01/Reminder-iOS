@@ -13,4 +13,5 @@ extension Color {
     static let taskNotCompletedBackground = Color(red: 1/255, green: 115/255, blue: 140/255)
     static let taskBackground = Color(red: 234/255, green: 250/255, blue: 254/255)
     static let bottomMenuBackground = Color(red: 132/255, green: 226/255, blue: 254/255)
+    static let lighterGray = Color(red: 243/255, green: 243/255, blue: 243/255)
 }

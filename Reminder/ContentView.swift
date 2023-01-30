@@ -19,6 +19,7 @@ struct ContentView: View {
     
     @State var presentAlert = false
     
+    
     @State var counter : Int = 0
     
     @State var isMind : Bool = false
@@ -44,7 +45,7 @@ struct ContentView: View {
                         ForEach(tasks) { task in
                             if(isMind && task.isMind || !isMind && !task.isMind){
                                 if(task.completed && isCompleted || !task.completed && !isCompleted){
-                                    TaskView(isMind: isMind, task: task)
+                                    TaskView(task: task, isMind: isMind)
                                         .buttonStyle(PlainButtonStyle())
                                         .listRowBackground(Color.taskBackground)
                                 }
@@ -105,6 +106,9 @@ struct ContentView: View {
                         .frame(height: geo.size.height)
                     } else {Color(.white)}}
             }
+        }.onAppear(){
+            UserDefaults.standard.set(tasks.count, forKey: "tasksCount")
+            
         }
     }
     
