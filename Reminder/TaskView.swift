@@ -15,20 +15,20 @@ struct TaskView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \TaskReminder.date, ascending: true)],
         animation: .default)
     private var tasks: FetchedResults<TaskReminder>
-    
+    var isMind: Bool
     @State var task: TaskReminder
     var body: some View {
         
         HStack{
             VStack{
                 if((task.name) != nil){
-                    Text(task.name!).font(.title2).multilineTextAlignment(.leading).lineLimit(1).frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 1)
+                    Text(task.name!).font(.title2).multilineTextAlignment(.leading).lineLimit(1).frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 1).strikethrough(task.completed)
                 }
                 if((task.date) != nil){
                     Text(itemFormatter.string(from: task.date!)).foregroundColor(.gray)
                         .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 15)
                 }
-            }.background( NavigationLink("", destination: ConfigTaskView()).opacity(0) )
+            }.background( NavigationLink("", destination: ConfigTaskView(isMind: isMind, index: Int(task.id))).opacity(0) )
             Spacer()
             Button(){
                 /* TODO: */
@@ -36,7 +36,7 @@ struct TaskView: View {
                 try? viewContext.save()
             }
                 label: {
-                    Image(systemName: task.completed ? "checkmark" : "circle")
+                    Image(systemName: task.completed ? "checkmark" : "circle").resizable().frame(width: 20, height:20)
                 }
             }
         .padding()

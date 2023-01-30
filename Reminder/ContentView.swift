@@ -44,7 +44,7 @@ struct ContentView: View {
                         ForEach(tasks) { task in
                             if(isMind && task.isMind || !isMind && !task.isMind){
                                 if(task.completed && isCompleted || !task.completed && !isCompleted){
-                                    TaskView(task: task)
+                                    TaskView(isMind: isMind, task: task)
                                         .buttonStyle(PlainButtonStyle())
                                         .listRowBackground(Color.taskBackground)
                                 }
@@ -62,7 +62,7 @@ struct ContentView: View {
                                 .frame(width: geo.size.width * 1.25, height: geo.size.height * 0.3 * 0.75)
                         }
                         VStack{
-                            Spacer().frame(height: geo.size.height * 0.3 * 0.07)
+                            Spacer().frame(height: geo.size.height * 0.3 * 0.08)
                             Button("Tareas completadas"){
                                 isCompleted = !isCompleted
                             }.buttonStyle(.borderedProminent)
@@ -80,11 +80,10 @@ struct ContentView: View {
                                 }.padding(.leading, 20)
                                 Spacer()
                                 VStack(){
-                                    Button(){
-                                        addItem()
-                                        counter = counter + 1
+                                    NavigationLink(){
+                                        ConfigTaskView(isMind: isMind)
                                     } label: {
-                                        Image("add").resizable().frame(width:60, height:60).padding(8)
+                                            Image("add").resizable().frame(width:60, height:60).padding(8)
                                     }.background(Color.taskBackground).cornerRadius(100).padding(.top,10).shadow(color: .lightGray, radius: 2, x: 0, y: 1)
                                     Spacer()
                                 }
