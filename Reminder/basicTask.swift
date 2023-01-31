@@ -11,6 +11,6 @@ struct basicTask: Codable,Identifiable {
     let id = UUID()
     var name: String
     var description: String
-    var completed: String
-    var date: Int
+    var completed: Bool
+    var date: String
 }
