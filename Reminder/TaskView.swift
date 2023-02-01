@@ -37,7 +37,7 @@ struct TaskView: View {
                     Text(task.name!).font(.title2).multilineTextAlignment(.leading).lineLimit(1).frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, 1).strikethrough(task.completed)
                 }
                 if((task.date) != nil){
-                    /* TODO: show dates correctly */
+                    /* TODO: show dates correctly (red if past and today, yesterday, tomorrow */
                     Text(itemFormatter.string(from: task.date!)).foregroundColor(.gray)
                         .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 15)
                 }
