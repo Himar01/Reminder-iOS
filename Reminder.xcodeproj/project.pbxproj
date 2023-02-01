@@ -21,6 +21,10 @@
 		5CAB69BF2984117400EA7FED /* ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB69BE2984117400EA7FED /* ReminderTests.swift */; };
 		5CAB69C92984117500EA7FED /* ReminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB69C82984117500EA7FED /* ReminderUITests.swift */; };
 		5CAB69CB2984117500EA7FED /* ReminderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB69CA2984117500EA7FED /* ReminderUITestsLaunchTests.swift */; };
+		5CDEC83E2989F44400AFA98E /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDEC83D2989F44400AFA98E /* ContentView-ViewModel.swift */; };
+		5CDEC840298A6B7400AFA98E /* TaskView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDEC83F298A6B7400AFA98E /* TaskView-ViewModel.swift */; };
+		5CDEC842298A6C1A00AFA98E /* Calendar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDEC841298A6C1A00AFA98E /* Calendar+Extensions.swift */; };
+		5CDEC844298A6C8C00AFA98E /* ConfigTaskView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDEC843298A6C8C00AFA98E /* ConfigTaskView-ViewModel.swift */; };
 		5CE9EBCA2984268F00252D23 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9EBC92984268F00252D23 /* TaskView.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +63,10 @@
 		5CAB69C42984117500EA7FED /* ReminderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReminderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAB69C82984117500EA7FED /* ReminderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderUITests.swift; sourceTree = "<group>"; };
 		5CAB69CA2984117500EA7FED /* ReminderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5CDEC83D2989F44400AFA98E /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		5CDEC83F298A6B7400AFA98E /* TaskView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskView-ViewModel.swift"; sourceTree = "<group>"; };
+		5CDEC841298A6C1A00AFA98E /* Calendar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Extensions.swift"; sourceTree = "<group>"; };
+		5CDEC843298A6C8C00AFA98E /* ConfigTaskView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigTaskView-ViewModel.swift"; sourceTree = "<group>"; };
 		5CE9EBC92984268F00252D23 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				5C013DF429849CF2008E6631 /* Color+Extensions.swift */,
+				5CDEC841298A6C1A00AFA98E /* Calendar+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -118,18 +127,15 @@
 		5CAB69A72984116900EA7FED /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				5CDEC83C2989F42200AFA98E /* network */,
+				5CDEC83B2989F40000AFA98E /* viewModels */,
+				5CDEC83A2989F3F700AFA98E /* views */,
 				5C013DF329849CD6008E6631 /* Extensions */,
 				5CAB69A82984116900EA7FED /* ReminderApp.swift */,
-				5CAB69AA2984116900EA7FED /* ContentView.swift */,
-				5C68C2A329882D1400E599CA /* ConfigTaskView.swift */,
 				5CAB69AC2984117300EA7FED /* Assets.xcassets */,
 				5CAB69B12984117300EA7FED /* Persistence.swift */,
 				5CAB69B32984117300EA7FED /* Reminder.xcdatamodeld */,
 				5CAB69AE2984117300EA7FED /* Preview Content */,
-				5CE9EBC92984268F00252D23 /* TaskView.swift */,
-				5C68C2A52988449E00E599CA /* basicTask.swift */,
-				5C68C2A72988466B00E599CA /* Api.swift */,
-				5CA21FF2298939A400A5BD26 /* MapPopover.swift */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -157,6 +163,36 @@
 				5CAB69CA2984117500EA7FED /* ReminderUITestsLaunchTests.swift */,
 			);
 			path = ReminderUITests;
+			sourceTree = "<group>";
+		};
+		5CDEC83A2989F3F700AFA98E /* views */ = {
+			isa = PBXGroup;
+			children = (
+				5CA21FF2298939A400A5BD26 /* MapPopover.swift */,
+				5CAB69AA2984116900EA7FED /* ContentView.swift */,
+				5C68C2A329882D1400E599CA /* ConfigTaskView.swift */,
+				5CE9EBC92984268F00252D23 /* TaskView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		5CDEC83B2989F40000AFA98E /* viewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5CDEC83D2989F44400AFA98E /* ContentView-ViewModel.swift */,
+				5CDEC83F298A6B7400AFA98E /* TaskView-ViewModel.swift */,
+				5CDEC843298A6C8C00AFA98E /* ConfigTaskView-ViewModel.swift */,
+			);
+			path = viewModels;
+			sourceTree = "<group>";
+		};
+		5CDEC83C2989F42200AFA98E /* network */ = {
+			isa = PBXGroup;
+			children = (
+				5C68C2A52988449E00E599CA /* basicTask.swift */,
+				5C68C2A72988466B00E599CA /* Api.swift */,
+			);
+			path = network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,11 +327,15 @@
 			files = (
 				5C68C2A82988466B00E599CA /* Api.swift in Sources */,
 				5C68C2A62988449E00E599CA /* basicTask.swift in Sources */,
+				5CDEC840298A6B7400AFA98E /* TaskView-ViewModel.swift in Sources */,
 				5CAB69B22984117300EA7FED /* Persistence.swift in Sources */,
 				5CAB69AB2984116900EA7FED /* ContentView.swift in Sources */,
 				5CA21FF3298939A400A5BD26 /* MapPopover.swift in Sources */,
 				5CAB69A92984116900EA7FED /* ReminderApp.swift in Sources */,
+				5CDEC844298A6C8C00AFA98E /* ConfigTaskView-ViewModel.swift in Sources */,
+				5CDEC842298A6C1A00AFA98E /* Calendar+Extensions.swift in Sources */,
 				5C68C2A429882D1400E599CA /* ConfigTaskView.swift in Sources */,
+				5CDEC83E2989F44400AFA98E /* ContentView-ViewModel.swift in Sources */,
 				5C013DF529849CF2008E6631 /* Color+Extensions.swift in Sources */,
 				5CE9EBCA2984268F00252D23 /* TaskView.swift in Sources */,
 				5CAB69B52984117300EA7FED /* Reminder.xcdatamodeld in Sources */,

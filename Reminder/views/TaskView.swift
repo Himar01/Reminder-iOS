@@ -27,7 +27,7 @@ struct TaskView: View {
             animation: .default)
     }
 
-    
+    @StateObject private var viewModel = ViewModel()
     
     var body: some View {
         
@@ -38,7 +38,7 @@ struct TaskView: View {
                 }
                 if((task.date) != nil){
                     /* TODO: show dates correctly (red if past and today, yesterday, tomorrow */
-                    Text(itemFormatter.string(from: task.date!)).foregroundColor(.gray)
+                    Text(viewModel.itemFormatter.string(from: task.date!)).foregroundColor(.gray)
                         .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 15)
                 }
             }.background( NavigationLink("", destination: ConfigTaskView(index: Int(task.id), isMind: isMind)).opacity(0) )
@@ -56,20 +56,5 @@ struct TaskView: View {
     }
 }
 
-let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "MMM, d, yyyy"
-    return formatter
-}()
 
-// In case of needing counting days from then to now
-extension Calendar {
-    func numberOfDaysBetween(_ from: Date, and to: Date) -> Int {
-        let fromDate = startOfDay(for: from) // <1>
-        let toDate = startOfDay(for: to) // <2>
-        let numberOfDays = dateComponents([.day], from: fromDate, to: toDate) // <3>
-        
-        return numberOfDays.day!
-    }
-}
 
